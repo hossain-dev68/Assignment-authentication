@@ -23,9 +23,9 @@ const Banner = () => {
       গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
     </p>
 
-    <button className="btn btn-success mt-6 px-6 text-white">
+    <a href="#সব-পণ্য" className="btn btn-success mt-6 px-6 text-white">
       দাম দেখুন
-    </button>
+    </a>
   </div>
 
   {/* Right Image */}

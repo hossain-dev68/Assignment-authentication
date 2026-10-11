@@ -1,7 +1,7 @@
 import type { Product, Category } from "@/types/product";
 export const API = "https://openapi.programming-hero.com/api/bazardor";
 
-export async function getProducts(): Promise<Product[]>() {
+export async function getProducts(): Promise<Product[]> {
   try {
     const res = await fetch(`${API}/products`, { cache: "no-store" });
     if (!res.ok) return [];
@@ -12,7 +12,7 @@ export async function getProducts(): Promise<Product[]>() {
   }
 }
 
-export async function getCategories(): Promise<Category[]>() {
+export async function getCategories(): Promise<Category[]> {
   try {
     const res = await fetch(`${API}/categories`, { cache: "no-store" });
     if (!res.ok) return [];

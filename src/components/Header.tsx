@@ -3,12 +3,10 @@ import Image from "next/image";
 import Navbar from "./Navbar";
 
 const Header =  () => {
-//   const date = new Date().toLocaleDateString("bn-BD", {
-//     dateStyle: "full",
-//   });
+const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
     return (
        <header>
-  <div className='container max-w-6xl mx-auto relative flex items-center justify-between py-4'>
+  <div className='container max-w-6xl mx-auto px-4 relative flex flex-wrap gap-3 items-center justify-between py-4'>
     
 
     <div className='flex items-center justify-start gap-3'>
@@ -21,7 +19,7 @@ const Header =  () => {
       />
       <div>
         <h2 className="text-2xl font-bold">বাজার দর</h2>
-        {/* <p>{date}</p> */}
+        <p className="text-xs text-gray-500">{date}</p>
       </div>
     </div>
 
