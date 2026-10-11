@@ -26,6 +26,7 @@ export type Product = {
   change: PriceChange;
   markets: Market[];
   description?: string;
+  price:null |undefined
 };
 
 export type Category = {
