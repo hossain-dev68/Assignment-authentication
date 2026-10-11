@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
     const router = useRouter();
@@ -19,11 +20,13 @@ const SignUpPage = () => {
     });
 
     if (data) {
+        toast.success("অ্যাকাউন্ট তৈরি হয়েছে!")
         console.log(data);
         router.push("/");
     }
 
     if (error) {
+        toast.error("সঠিক তথ্য দিয়ে চেষ্টা করুন")
         console.log(error);
     }
 };
