@@ -1,9 +1,19 @@
 "use client"
 import Image from "next/image";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
+import { useEffect, useState } from "react";
+import UserInfo from "./UserInfo";
 
 const Header =  () => {
-const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
+  const [date, setDate] = useState("");
+useEffect(() => {
+    const today = new Date().toLocaleDateString("bn-BD", {
+      dateStyle: "full",
+    });
+
+    setDate(today);
+  }, []);
+
     return (
        <header>
   <div className='container max-w-6xl mx-auto px-4 relative flex flex-wrap gap-3 items-center justify-between py-4'>
@@ -23,13 +33,10 @@ const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
       </div>
     </div>
 
-    
-    <div className='flex gap-2'>
-      <button className='btn rounded-1xl'>সাইন ইন</button>
-      <button className='btn bg-green-700 text-white rounded-1xl'>সাইন আপ</button>
-    </div>
+    <UserInfo/>
+   
 </div>
-        <Navbar/>
+        {/* <Navbar/> */}
 </header>
     );
 };
