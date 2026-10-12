@@ -1,6 +1,7 @@
 "use client"
 
 import { authClient } from "@/lib/auth-client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -28,6 +29,20 @@ const SignInPage = () => {
             console.log(error);
         }
     };
+
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data);
+    }
+
+    const handleGithubSignIn = async() => {
+        const data = await authClient.signIn.social({
+        provider: "github"
+    });
+    console.log(data);
+    }
 
     return (
         <div className="flex flex-col items-center justify-center m-5">
@@ -62,6 +77,39 @@ const SignInPage = () => {
                     <button type="submit" className="btn bg-green-700 text-white mt-4">সাইন ইন করুন</button>
                 </fieldset>
             </form>
+            <div className="mt-6">
+  <div className="flex items-center gap-3 mb-5">
+    <div className="flex-1 h-px bg-gray-300"></div>
+    <h3 className="text-sm font-medium text-gray-500">অথবা</h3>
+    <div className="flex-1 h-px bg-gray-300"></div>
+  </div>
+
+  <div className="flex flex-col sm:flex-row gap-3">
+    <button
+      onClick={handleGoogleSignIn}
+      className="btn flex-1 bg-white text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-100"
+    >
+      Sign In With Google
+    </button>
+
+    <button
+      onClick={handleGithubSignIn}
+      className="btn flex-1 bg-gray-900 text-white border border-gray-900 rounded-lg hover:bg-gray-800"
+    >
+      Sign In With GitHub
+    </button>
+  </div>
+
+  <p className="text-center text-sm text-gray-500 mt-6">
+    অ্যাকাউন্ট আছে?{" "}
+    <Link
+      href="/signin"
+      className="text-green-700 font-semibold hover:underline"
+    >
+      সাইন ইন করুন
+    </Link>
+  </p>
+</div>
         </div>
     );
 };
